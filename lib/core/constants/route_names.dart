@@ -5,4 +5,5 @@ class RouteNames {
   static const String questionThreeScreen = '/questionThreeScreen';
   static const String questionFourScreen = '/questionFourScreen';
   static const String questionFiveScreen = '/questionFiveScreen';
+  static const String resultScreen = '/resultScreen';
 }

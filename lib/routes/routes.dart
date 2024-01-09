@@ -6,6 +6,7 @@ import 'package:quiz_app/screens/question_screen/question_four_screen.dart';
 import 'package:quiz_app/screens/question_screen/question_one_screen.dart';
 import 'package:quiz_app/screens/question_screen/question_three_screen.dart';
 import 'package:quiz_app/screens/question_screen/question_two_screen.dart';
+import 'package:quiz_app/screens/result_screen/result_screen.dart';
 import 'package:quiz_app/screens/welcome_screen/welcome_screen.dart';
 
 // Map<String, Widget Function(BuildContext)> namedroutes =
@@ -54,6 +55,12 @@ class AppRoutes {
         return PageTransition(
           duration: pageduration,
           child: const QuestionFiveScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case RouteNames.resultScreen:
+        return PageTransition(
+          duration: pageduration,
+          child: const ResultScreen(),
           type: PageTransitionType.rightToLeft,
         );
     }

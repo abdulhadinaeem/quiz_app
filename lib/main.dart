@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_app/core/constants/route_names.dart';
-import 'package:quiz_app/routes/routes.dart';
+import 'package:quiz_app/screens/demo.dart';
 import 'services/question_provider.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -43,15 +45,17 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          pageTransitionsTheme: PageTransitionsTheme(builders: {
-            TargetPlatform.android: PageTransition(
-                    type: PageTransitionType.rightToLeft, child: this)
-                .matchingBuilder,
-          }),
+          pageTransitionsTheme: PageTransitionsTheme(
+            builders: {
+              TargetPlatform.android: PageTransition(
+                      type: PageTransitionType.rightToLeft, child: this)
+                  .matchingBuilder,
+            },
+          ),
         ),
-        onGenerateRoute: AppRoutes.ongenerateRoutes,
+        home: const Demo(),
         debugShowCheckedModeBanner: false,
-        initialRoute: RouteNames.welcomeScreen,
+        // initialRoute: RouteNames.welcomeScreen,
       ),
     );
   }
